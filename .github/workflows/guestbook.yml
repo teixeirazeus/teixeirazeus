@@ -30,7 +30,7 @@ jobs:
             const number = getRandomInt(1, 898);
 
             const data = await github.request('https://pokeapi.co/api/v2/pokemon/'+number.toString())
-            const pokemonName = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+            const pokemonName = data.name;
             const pokemonImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+number.toString()+".png";
 
 
