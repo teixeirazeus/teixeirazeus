@@ -3,4 +3,4 @@
  <p align="center"> <img  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/862.png"/> </p><!-- /Guestbook -->
 
 
-Find your pokémon [here](https://github.com/teixeirazeus/teixeirazeus/issues/2)!
+To find a pokemon, comment on my [guestbook](https://github.com/teixeirazeus/teixeirazeus/issues/2).
