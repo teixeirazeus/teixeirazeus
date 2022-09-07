@@ -49,7 +49,7 @@ jobs:
             getJSONP('https://pokeapi.co/api/v2/pokemon/${number}', function(data){
                 console.log(data);
                 pokemonName = data.name.charAt(0).toUpperCase() + data.name.slice(1);
-                pokemonImage = https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png;
+                pokemonImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png";
             }); 
 
             const query = `query($owner:String!, $name:String!, $issue_number:Int!) {
