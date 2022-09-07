@@ -59,7 +59,7 @@ jobs:
             const result = await github.graphql(query, variables)
             const renderComments = (comments) => {
               return comments.reduce((prev, curr) => {
-                return `<a href="${curr.author.url}"><img width="24" src="${curr.author.avatarUrl}" alt="${curr.author.login}" /> ${curr.author.login}</a> found a wild ${pokemonName}\n <p align="center"> <img  src="${pokemonImage}"/> </p>`;
+                return `<a href="${curr.author.url}"><img width="24" src="${curr.author.avatarUrl}" alt="${curr.author.login}" /> ${curr.author.login}</a> found a wild <h2> <b> ${pokemonName} </b> </h2> \n <p align="center"> <img  src="${pokemonImage}"/> </p>`;
               }, "");
             };
             const fileSystem = require('fs');
