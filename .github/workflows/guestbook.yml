@@ -31,8 +31,9 @@ jobs:
 
             const data = await github.request('https://pokeapi.co/api/v2/pokemon/'+number.toString())
             const pokemonName = data.data.name;
+            pokemonName = pokemonName[0].toUpperCase() + pokemonName.substring(1);
             const pokemonImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+number.toString()+".png";
-
+            const pokemonSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+number.toString()+".png";
 
             const query = `query($owner:String!, $name:String!, $issue_number:Int!) {
               repository(owner:$owner, name:$name){
@@ -59,7 +60,7 @@ jobs:
             const result = await github.graphql(query, variables)
             const renderComments = (comments) => {
               return comments.reduce((prev, curr) => {
-                return `<a href="${curr.author.url}"><img width="24" src="${curr.author.avatarUrl}" alt="${curr.author.login}" /> ${curr.author.login}</a> found a wild <h2> <b> ${pokemonName} </b> </h2> \n <p align="center"> <img  src="${pokemonImage}"/> </p>`;
+                return `<a href="${curr.author.url}"><img width="24" src="${curr.author.avatarUrl}" alt="${curr.author.login}" /> ${curr.author.login}</a> found a wild <h2><img src="${pokemonSprite}"/> <b> ${pokemonName} </b> </h2> \n <p align="center"> <img  src="${pokemonImage}"/> </p>`;
               }, "");
             };
             const fileSystem = require('fs');
