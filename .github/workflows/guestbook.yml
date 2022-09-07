@@ -20,6 +20,38 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
+            function getJSONP(url, success) {
+
+            var ud = '_' + +new Date,
+                script = document.createElement('script'),
+                head = document.getElementsByTagName('head')[0] 
+                      || document.documentElement;
+
+            window[ud] = function(data) {
+                head.removeChild(script);
+                success && success(data);
+            };
+
+            script.src = url.replace('callback=?', 'callback=' + ud);
+            head.appendChild(script);
+
+            }
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            const number = getRandomInt(1, 898);
+            const pokemonName = "";
+            const pokemonImage = "";
+
+            getJSONP('https://pokeapi.co/api/v2/pokemon/${number}'', function(data){
+                console.log(data);
+                pokemonName = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+                pokemonImage = https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png;
+            }); 
+
             const query = `query($owner:String!, $name:String!, $issue_number:Int!) {
               repository(owner:$owner, name:$name){
                 issue(number:$issue_number) {
@@ -45,7 +77,7 @@ jobs:
             const result = await github.graphql(query, variables)
             const renderComments = (comments) => {
               return comments.reduce((prev, curr) => {
-                return `<a href="${curr.author.url}"><img width="24" src="${curr.author.avatarUrl}" alt="${curr.author.login}" /> ${curr.author.login}</a> \n`;
+                return `<a href="${curr.author.url}"><img width="24" src="${curr.author.avatarUrl}" alt="${curr.author.login}" /> ${curr.author.login}</a> found a wild ${pokemonName}\n <p align="center"> <img  src="${pokemonImage}"/> </p>`;
               }, "");
             };
             const fileSystem = require('fs');
