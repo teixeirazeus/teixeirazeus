@@ -1,8 +1,6 @@
 [![Header](./github-header-image3.png)](https://www.youtube.com/watch?v=NfjsLmya1PI)
 Welcome to my GitHub profile! Here, you'll find a collection of packages that I've developed mainly in Python and Dart/Flutter, as well as a variety of older projects that I've archived for reference.
 
-Currently, i am solving the [advent of code](https://github.com/teixeirazeus/advent-of-code) and [hackerrank](https://www.hackerrank.com/profile/teixeira_zeus).
-
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/thiago-s-teixeira-7564a8140/)
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/306104640041386004)
